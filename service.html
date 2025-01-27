@@ -22,6 +22,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="./css/hamburgers.css" />
   </head>
   <body class="service-1">
     <header class="main-header">
@@ -42,9 +43,17 @@
               </nav>
             </div>
             <!-- Hamburger Icon -->
-            <div class="hamburger">
-              <i class="fas fa-bars"></i>
-            </div>
+            <button
+              class="hamburger hamburger--slider"
+              type="button"
+              aria-label="Menu"
+              aria-controls="navigation"
+              aria-expanded="true/false"
+            >
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -317,6 +326,25 @@
             : "";
         });
       });
+      var forEach = function (t, o, r) {
+        if ("[object Object]" === Object.prototype.toString.call(t))
+          for (var c in t)
+            Object.prototype.hasOwnProperty.call(t, c) && o.call(r, t[c], c, t);
+        else for (var e = 0, l = t.length; l > e; e++) o.call(r, t[e], e, t);
+      };
+
+      var hamburgers = document.querySelectorAll(".hamburger");
+      if (hamburgers.length > 0) {
+        forEach(hamburgers, function (hamburger) {
+          hamburger.addEventListener(
+            "click",
+            function () {
+              this.classList.toggle("is-active");
+            },
+            false
+          );
+        });
+      }
     </script>
   </body>
 </html>
